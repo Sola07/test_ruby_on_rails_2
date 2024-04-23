@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
-  resources :pages do
+  root to: "user_files#index"
+  resources :user_files, only: [:index, :show] do
     collection do
       post :import
     end

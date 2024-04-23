@@ -1,7 +1,7 @@
 class CsvImportService
   require "csv"
 # parse csv file & create new instances of purchaser, show, pricing, event, and booking
-  def call(file)
+  def call(file, user_file)
     file = File.new(file)
     csv = CSV.parse(file, headers: true, col_sep: ";")
     CSV.foreach(file, headers: true, col_sep: ";") do |row|
@@ -46,7 +46,8 @@ class CsvImportService
         event_id: event.id ,
         pricing_id: pricing.id,
         purchaser_id: purchaser.id,
-        show_id: show.id
+        show_id: show.id,
+        user_file_id: user_file.id
       )
 
     end
