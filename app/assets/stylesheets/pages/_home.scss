@@ -1,1 +1,14 @@
-// Specific CSS for your home-page
+.form-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.home-text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.file-input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
