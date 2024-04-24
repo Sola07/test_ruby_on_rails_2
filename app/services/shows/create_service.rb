@@ -1,8 +1,8 @@
 module Shows
   class CreateService
-    def initialize(params, imported_file)
+    def initialize(params, imported_file_id)
       @params = params
-      @imported_file = imported_file
+      @imported_file_id = imported_file_id
     end
 
     def call
@@ -11,7 +11,7 @@ module Shows
     end
 
     private
-    attr_reader :params, :imported_file
+    attr_reader :params, :imported_file_id
 
     def show
       @show ||= find_or_create_show
@@ -21,7 +21,7 @@ module Shows
       Show.find_or_create_by(
         key: params["Cle spectacle"],
         name: params["Spectacle"],
-        imported_file_id: @imported_file.id
+        imported_file_id: imported_file_id
       )
     end
   end

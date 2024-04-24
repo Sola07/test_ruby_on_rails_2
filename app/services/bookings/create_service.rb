@@ -1,12 +1,12 @@
 module Bookings
   class CreateService
-    def initialize(params, event, pricing, show, purchaser, imported_file)
+    def initialize(params, event, pricing, show, purchaser, imported_file_id)
       @params = params
       @event = event
       @pricing = pricing
       @show = show
       @purchaser = purchaser
-      @imported_file = imported_file
+      @imported_file_id = imported_file_id
     end
 
     def call
@@ -15,7 +15,7 @@ module Bookings
     end
 
     private
-    attr_reader :params, :event, :pricing, :show, :purchaser, :imported_file
+    attr_reader :params, :event, :pricing, :show, :purchaser, :imported_file_id
 
     def booking
       @booking||= Booking.create(
@@ -24,11 +24,11 @@ module Bookings
         time: params["Heure reservation"],
         ticket_number: params["Numero billet"],
         sales_channel: params["Filiere de vente"],
-        event_id: @event.id ,
-        pricing_id: @pricing.id,
-        purchaser_id: @purchaser.id,
-        show_id: @show.id,
-        imported_file: @imported_file
+        event_id: event.id ,
+        pricing_id: pricing.id,
+        purchaser_id: purchaser.id,
+        show_id: show.id,
+        imported_file_id: imported_file_id
       )
     end
   end
