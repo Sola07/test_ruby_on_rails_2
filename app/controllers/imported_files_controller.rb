@@ -5,9 +5,9 @@ class ImportedFilesController < ApplicationController
 
   def import
     file = params[:file]
-    imported_file = ImportedFile.create(file_name: file.original_filename)
+    imported_file = ImportedFile.create(file_name: file.original_filename, file_type: file.content_type)
     FileImportService.new.call(file, imported_file.id)
-    redirect_to root_path(imported_file_id: imported_file.id), notice: "CSV imported successfully."
+    redirect_to root_path(imported_file_id: imported_file.id), notice: "File imported successfully."
   end
 
   def show

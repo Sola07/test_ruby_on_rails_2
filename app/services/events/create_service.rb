@@ -18,15 +18,16 @@ module Events
     end
 
     def find_or_create_event
-      Event.find_or_create_by(
-        name: params["Representation"],
-        starting_date: Date.strptime(params["Date representation"], '%d/%m/%y'),
-        ending_date: Date.strptime(params["Date fin representation"], '%d/%m/%y'),
-        starting_time:  params["Heure representation"],
-        ending_time: params["Heure fin representation"],
-        key: params["Cle representation"],
-        show_id: @show.id
-      )
+      event = ::Event.find_or_initialize_by(key: params["Cle representation"]) do |new_event|
+        new_event.name = params["Representation"]
+        new_event.starting_date = Date.strptime(params["Date representation"], '%d/%m/%y')
+        new_event.ending_date = Date.strptime(params["Date fin representation"], '%d/%m/%y')
+        new_event.starting_time =  params["Heure representation"]
+        new_event.ending_time = params["Heure fin representation"]
+        new_event.key = params["Cle representation"]
+        new_event.show_id = @show.id
+      end
+      event
     end
   end
 end
