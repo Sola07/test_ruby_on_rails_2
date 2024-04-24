@@ -13,7 +13,7 @@ module Pricings
     attr_reader :params
 
     def pricing
-      @pricing ||= Pricing.create(
+      @pricing ||= Pricing.new(
         amount: params["Prix"],
         product_type: params["Type de produit"]
       )

@@ -38,7 +38,7 @@ require 'creek'
     purchaser = Purchasers::CreateService.new(row).call
     show = Shows::CreateService.new(row, imported_file_id).call
     pricing = Pricings::CreateService.new(row).call
-    event = Events::CreateService.new(row, show).call
+    event = Events::CreateService.new(row, show, imported_file_id).call
     booking = Bookings::CreateService.new(row, event, pricing, show, purchaser, imported_file_id).call
   end
 end

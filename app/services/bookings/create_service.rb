@@ -18,7 +18,7 @@ module Bookings
     attr_reader :params, :event, :pricing, :show, :purchaser, :imported_file_id
 
     def booking
-      @booking||= Booking.create(
+      @booking||= Booking.new(
         number: params["Reservation"],
         date: Date.strptime(params["Date reservation"], '%d/%m/%y'),
         time: params["Heure reservation"],

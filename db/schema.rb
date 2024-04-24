@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_24_144317) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_24_163444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_144317) do
     t.bigint "show_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "imported_file_id"
+    t.index ["imported_file_id"], name: "index_events_on_imported_file_id"
     t.index ["show_id"], name: "index_events_on_show_id"
   end
 
