@@ -4,9 +4,9 @@
     <% @imported_file.shows.each do |show| %>
       <div class="card">
         <h4><%= show.name %></h3>
-        <p> Nombre de réservation : <%= show.bookings.count%> </p>
+        <p> Nombre de réservations : <%= show.bookings.count%> </p>
         <p>Nombre d'acheteurs uniques : <%= show.unique_purchasers%> </p>
-        <p>Nombre de représentation: <%= show.events.count%>  </p>
+        <p>Nombre de représentations: <%= show.events.count%>  </p>
         <p>Prix moyen par représentation: <%= show.average_price_per_event%>€ </p>
         <p>Age moyen des acheteurs: <%= show.average_purchasers_age %></p>
       </div>
