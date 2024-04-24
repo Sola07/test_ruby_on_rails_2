@@ -18,7 +18,7 @@ module Shows
     end
 
     def find_or_create_show
-      show = ::Show.find_or_initialize_by(key: params["Cle spectacle"]) do |new_show|
+      show = ::Show.find_or_initialize_by(key: params["Cle spectacle"], imported_file_id: imported_file_id) do |new_show|
         new_show.key = params["Cle spectacle"]
         new_show.name = params["Spectacle"]
         new_show.imported_file_id = imported_file_id
