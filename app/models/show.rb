@@ -14,8 +14,12 @@ class Show < ApplicationRecord
   end
 
   def average_price_per_event
-    total_price = pricings.sum(:amount)
+    total_price = 0
     total_events = events.count
+    events.each do |event|
+      total_price += event.pricings.average(:amount).to_f
+    end
+
     if total_events > 0
       average_price = total_price / total_events
       return average_price.round(2)
