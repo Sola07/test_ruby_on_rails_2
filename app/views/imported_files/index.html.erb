@@ -1,6 +1,6 @@
 <div class="container">
   <div class="form-group">
-    <h3 class="home-text">Upload a CSV file</h3>
+    <h3 class="home-text">Upload a CSV or a XLSX file</h3>
     <div class="form-container">
       <%= form_with url: import_imported_files_path, method: :post, class: "file-input" do |form | %>
         <%= form.file_field :file %>
