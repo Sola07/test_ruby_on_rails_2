@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="form-group">
+    <h3 class="home-text">Upload a CSV file</h3>
+    <div class="form-container">
+      <%= form_with url: import_imported_files_path, method: :post, class: "file-input" do |form | %>
+        <%= form.file_field :file, accept:".csv" %>
+        <%= form.button "import", class: "btn btn-primary"%>
+      <% end %>
+    </div>
+    <% if params[:imported_file_id].present? %>
+      <% imported_file = ImportedFile.find(params[:imported_file_id]) %>
+        <p class="home-text">
+          Nom du fichier: <%= imported_file.file_name %><br>
+          <%= link_to "Voir mes données", imported_file_path(imported_file) %>
+        </p>
+    <% else %>
+      <div class="home-text"><%= flash[:alert] %></div>
+    <% end %>
+  </div>
+</div>

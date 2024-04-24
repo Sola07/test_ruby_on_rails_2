@@ -1,0 +1,23 @@
+.cards-container {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+
+  h4 {
+    font-size: 18px;
+  }
+
+  p{
+    font-size: 14px;
+  }
+}
