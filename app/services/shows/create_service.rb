@@ -1,5 +1,5 @@
 module Shows
-  class CreateService
+  class CreateService < ApplicationService
     def initialize(params, imported_file_id)
       @params = params
       @imported_file_id = imported_file_id

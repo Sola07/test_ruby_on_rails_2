@@ -1,5 +1,5 @@
 module Bookings
-  class CreateService
+  class CreateService < ApplicationService
     def initialize(params, event, pricing, show, purchaser, imported_file_id)
       @params = params
       @event = event

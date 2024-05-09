@@ -1,5 +1,5 @@
 module Purchasers
-  class CreateService
+  class CreateService < ApplicationService
     def initialize(params)
       @params = params
     end

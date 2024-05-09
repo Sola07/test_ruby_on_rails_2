@@ -1,5 +1,5 @@
 module Events
-  class CreateService
+  class CreateService < ApplicationService
     def initialize(params, show, imported_file_id)
       @params = params
       @show = show

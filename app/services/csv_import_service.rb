@@ -6,5 +6,4 @@ class CsvImportService < FileImportService
       process_row(row, imported_file_id)
     end
   end
-
 end
